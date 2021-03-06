@@ -12,6 +12,9 @@ while (canvasSize < windowWidth && canvasSize < windowHeight) {
 canvasSize -= 50;
 canvasSize *= 0.9;
 
+const BUBBLE_SIZE_LOWEST = Math.floor(canvasSize / 100);
+const BUBBLE_SIZE_HIGHEST = Math.floor(canvasSize / 10);
+
 const canvas = document.getElementById("myCanvas");
 const context = canvas.getContext("2d");
 
@@ -139,7 +142,8 @@ for (let i = 0; i < BUBBLE_COUNT; i++) {
   bubbles.push(
     new Bubble(
       "#" + Math.floor(Math.random() * 16777215).toString(16),
-      Math.floor(Math.random() * 40) + 5,
+      Math.floor(Math.random() * BUBBLE_SIZE_HIGHEST - BUBBLE_SIZE_LOWEST) +
+        BUBBLE_SIZE_LOWEST,
       ...getRandomBoundaryPoints()
     )
   );
@@ -176,7 +180,8 @@ window.main = function () {
         if (rad > 0.9 * canvasSize) end = true;
         bubbles[i] = new Bubble(
           "#" + Math.floor(Math.random() * 16777215).toString(16),
-          Math.floor(Math.random() * 40) + 5,
+          Math.floor(Math.random() * BUBBLE_SIZE_HIGHEST - BUBBLE_SIZE_LOWEST) +
+            BUBBLE_SIZE_LOWEST,
           ...getRandomBoundaryPoints()
         );
         continue;
@@ -187,7 +192,8 @@ window.main = function () {
     if (bubbles[i].outOfCanvas()) {
       bubbles[i] = new Bubble(
         "#" + Math.floor(Math.random() * 16777215).toString(16),
-        Math.floor(Math.random() * 40) + 5,
+        Math.floor(Math.random() * BUBBLE_SIZE_HIGHEST - BUBBLE_SIZE_LOWEST) +
+          BUBBLE_SIZE_LOWEST,
         ...getRandomBoundaryPoints()
       );
     }
@@ -214,7 +220,8 @@ function playAgain() {
     bubbles.push(
       new Bubble(
         "#" + Math.floor(Math.random() * 16777215).toString(16),
-        Math.floor(Math.random() * 40) + 5,
+        Math.floor(Math.random() * BUBBLE_SIZE_HIGHEST - BUBBLE_SIZE_LOWEST) +
+          BUBBLE_SIZE_LOWEST,
         ...getRandomBoundaryPoints()
       )
     );
