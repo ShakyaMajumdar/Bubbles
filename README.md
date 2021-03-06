@@ -2,6 +2,8 @@
 
 Destroy as many bubbles as you can!
 
+![Example](Example.png)
+
 ## Instructions
 
 - Double click on Bubbles.html to start the game.
